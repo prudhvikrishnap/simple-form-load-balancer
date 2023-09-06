@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Vote</title>
+</head>
+<body>
+   <h1>Vote:</h1>
+   <form method="post">
+       <label>
+           <input type="radio" name="vote" value="yes"> Yes
+       </label>
+       <label>
+           <input type="radio" name="vote" value="no"> No
+       </label>
+       <br>
+       <input type="submit" value="Submit" id="submitButton">
+   </form>
+
+   <script>
+       // JavaScript function to set the action based on the selected option
+       document.querySelector('#submitButton').addEventListener('click', function() {
+           const selectedOption = document.querySelector('input[name="vote"]:checked');
+           if (selectedOption) {
+               const form = document.querySelector('form');
+               form.action = '/vote/' + selectedOption.value;
+           }
+       });
+   </script>
+</body>
+</html>
+
